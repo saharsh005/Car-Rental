@@ -19,6 +19,8 @@ export const AppProvider = ({ children }) => {
   const currency = import.meta.env.VITE_CURRENCY;
   axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   // 🔹 Listen for Firebase Auth changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -28,7 +30,7 @@ export const AppProvider = ({ children }) => {
         // Optionally sync with backend for extra info (like role)
         try {
           const token = await firebaseUser.getIdToken();
-          const { data } = await axios.post("http://car-rental-env.eba-my6msqd4.ap-south-1.elasticbeanstalk.com/api/user/firebase-login", { token });
+          const { data } = await axios.post(`${API_URL}/api/user/firebase-login`, { token });
           if (data.success && data.user.role === "owner") setIsOwner(true);
         } catch (err) {
           console.error(err);
@@ -49,7 +51,7 @@ export const AppProvider = ({ children }) => {
 
     const token = await user.getIdToken();
 
-    const { data } = await axios.get("http://car-rental-env.eba-my6msqd4.ap-south-1.elasticbeanstalk.com/api/user/cars", {
+    const { data } = await axios.get(`${API_URL}/api/user/cars`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 

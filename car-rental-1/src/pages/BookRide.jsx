@@ -12,6 +12,8 @@ import {
 import { db, auth } from "../firebaseConfig";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const BookRide = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -105,7 +107,7 @@ const handlePayment = async () => {
   setIsProcessing(true);
 
   try {
-    const { data } = await axios.post("http://car-rental-env.eba-my6msqd4.ap-south-1.elasticbeanstalk.com/api/payment/create-order", {
+    const { data } = await axios.post(`${API_URL}/api/payment/create-order`, {
       amount: totalCost * 100,
     });
 
