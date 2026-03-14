@@ -75,7 +75,9 @@ npm run dev
 ```
 The frontend runs on http://localhost:5173 by default.
 
-Frontend Deployment (Vercel)
+---
+## Frontend Deployment
+
 Connect the car-rental folder to your Vercel account.
 
 Set the following Environment Variables in the Vercel dashboard:
@@ -92,7 +94,8 @@ Set Build Command: npm run build
 
 Set Output Directory: dist
 
-Backend Deployment (AWS Elastic Beanstalk)
+---
+## Backend Deployment 
 Zip the backend folder.
 
 Upload to AWS Elastic Beanstalk (Node.js platform).
@@ -103,7 +106,8 @@ Launch the environment and note the public URL.
 
 Use this URL as VITE_API_URL in frontend .env or Vercel variables.
 
-Environment Variables
+---
+## Environment Variables
 Frontend (.env.local):
 ```
 VITE_FIREBASE_API_KEY=your-api-key
