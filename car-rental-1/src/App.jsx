@@ -7,7 +7,7 @@ import CarDetails from "./pages/CarDetails";
 import BookRide from "./pages/BookRide";
 import MyBookings from "./pages/MyBookings";
 import Footer from "./components/Footer";
-import Layout from "./pages/owner/layout";
+import Layout from "./pages/owner/Layout.jsx";
 import Dashboard from "./pages/owner/Dashboard";
 import ManageCars from "./pages/owner/ManageCars";
 import AddCar from "./pages/owner/AddCar";
