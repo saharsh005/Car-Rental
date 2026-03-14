@@ -1,15 +1,17 @@
 branch-defaults:
-  main:
-    environment: car-rental-backend-env
+  default:
+    environment: car-rental-env
 global:
   application_name: car-rental-backend
-  default_ec2_keyname: null
+  branch: null
+  default_ec2_keyname: car-rental-key
   default_platform: Node.js 20 running on 64bit Amazon Linux 2023
-  default_region: us-east-1
+  default_region: ap-south-1
   include_git_submodules: true
   instance_profile: null
   platform_name: null
   platform_version: null
   profile: null
-  sc: git
+  repository: null
+  sc: null
   workspace_type: Application

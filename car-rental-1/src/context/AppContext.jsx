@@ -28,7 +28,7 @@ export const AppProvider = ({ children }) => {
         // Optionally sync with backend for extra info (like role)
         try {
           const token = await firebaseUser.getIdToken();
-          const { data } = await axios.post("/api/user/firebase-login", { token });
+          const { data } = await axios.post("http://car-rental-env.eba-my6msqd4.ap-south-1.elasticbeanstalk.com/api/user/firebase-login", { token });
           if (data.success && data.user.role === "owner") setIsOwner(true);
         } catch (err) {
           console.error(err);
@@ -49,7 +49,7 @@ export const AppProvider = ({ children }) => {
 
     const token = await user.getIdToken();
 
-    const { data } = await axios.get("/api/user/cars", {
+    const { data } = await axios.get("http://car-rental-env.eba-my6msqd4.ap-south-1.elasticbeanstalk.com/api/user/cars", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
